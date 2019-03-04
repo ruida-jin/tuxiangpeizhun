@@ -1,0 +1,17 @@
+第二次作业源代码
+
+图像配准
+
+close all;
+
+im1 = imread('Image A.jpg');
+im2 = imread('Image B.jpg');
+
+cpselect(im1,im2)  %用于在两张图片中进行取点进行配准
+
+
+tform = cp2tform(movingPoints,fixedPoints,'affine');  %生成映射矩阵
+lout = imtransform(im1,tform);
+figure；
+subplot(1,2,1),imshow(lout);
+subplot(1,2,2),imshow(im2);
